@@ -2,7 +2,7 @@ from enum import Enum
 
 
 class Commands(Enum):
-    FIND_CONTACTS = "find-contact"
+    FIND_CONTACTS = "find-contacts"
     ADD_CONTACT = "add-contact"
     REMOVE_CONTACT = "remove-contact"
     UPDATE_NAME = "update-name"

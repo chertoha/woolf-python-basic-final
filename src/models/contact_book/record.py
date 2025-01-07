@@ -53,3 +53,9 @@ class Record:
     @property
     def phones(self):
         return self.__phones
+
+    def add_phone(self, new_phone: str):
+        self.__phones.append(Phone(new_phone))
+
+    def find_phone(self, searched_phone: str) -> Phone | None:
+        return next((phone for phone in self.__phones if str(phone) == searched_phone), None)
