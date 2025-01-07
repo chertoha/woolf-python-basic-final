@@ -1,4 +1,4 @@
-from exceptions.wrong_command_exception import WrongCommandException
+from src.exceptions.wrong_command_exception import WrongCommandException
 from functools import wraps
 
 
