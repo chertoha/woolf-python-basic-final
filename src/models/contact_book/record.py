@@ -21,6 +21,12 @@ class Record:
     @property
     def name(self):
         return self.__name
+    
+    def update_name(self, new_name: str):
+        # self.__name = Name(new_name)
+
+        self.update_name(new_name)
+
 
     @name.setter
     def name(self, new_name: Name):
@@ -57,5 +63,10 @@ class Record:
     def add_phone(self, new_phone: str):
         self.__phones.append(Phone(new_phone))
 
+    def remove_phone(self, new_phone: str):
+        self.__phones.append(Phone(new_phone))
+
+
     def find_phone(self, searched_phone: str) -> Phone | None:
         return next((phone for phone in self.__phones if str(phone) == searched_phone), None)
+
