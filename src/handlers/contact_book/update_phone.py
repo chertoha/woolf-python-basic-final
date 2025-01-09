@@ -25,9 +25,9 @@ def update_phone(args: List[str]):
     if record.find_phone(new_phone):
         raise ValueError(f"Phone number '{new_phone}' already exists in contact '{name}'.")
 
-    for other_record in contact_book:
-        if other_record != record and other_record.find_phone(new_phone):
-            raise ValueError(f"The phone number '{new_phone}' is already in use by another contact.")
+    # for other_record in contact_book:
+    #     if other_record != record and other_record.find_phone(new_phone):
+    #         raise ValueError(f"The phone number '{new_phone}' is already in use by another contact.")
 
     record.update_phone(old_phone, new_phone)
 

@@ -17,8 +17,7 @@ def update_name(args: List[str]):
     if record is None:
         raise KeyError(f"Contact with name '{old_name}' not found.")
     
-    existing_record = contact_book.find_record(new_name)
-    if existing_record and existing_record != record:
+    if contact_book.find_record(new_name) is not None:
         raise ValueError(f"The name '{new_name}' is already in the contact book. Please choose a different name.")
     
     record.update_name(new_name)

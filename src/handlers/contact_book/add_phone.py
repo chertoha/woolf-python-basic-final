@@ -7,4 +7,4 @@ from src.models.organizer import contact_book
 
 @catch
 def add_phone(args: List[str]):
-    print("add_phone completed")
+    print("add_phone")
