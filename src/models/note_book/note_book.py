@@ -7,17 +7,33 @@ class NoteBook:
     def __init__(self) -> None:
         self.__notes: List[Note] = []
 
-    def add_note(self, title: str, text: str) -> None:
-        pass
+    def add_note(self, data: Note) -> None:
+        self.__notes.append(data)
+       
 
     def find_note(self, searched_title: str):
-        pass
+        return next((note for note in self.__notes if note.title == searched_title), None)
+        
+
 
     def remove_note(self, searched_title: str):
-        pass
+        for index, note in enumerate(self.__notes):
+            if note.title == searched_title:
+                del self.__notes[index]
+                return True
+        return False
+            
 
     def update_note(self, searched_title: str, new_text: str):
-        pass
+        for note in self.__notes:
+            if note.title == searched_title:
+                note.text = new_text
+                
+                    
+            
 
     def update_note_title(self, old_title: str, new_title: str):
-        pass
+        for note in self.__notes:
+            if note.title == old_title:
+                note.title = new_title
+        

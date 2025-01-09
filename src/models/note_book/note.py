@@ -11,6 +11,9 @@ class Note():
         self.title = title
         self.text = text
 
+    def __str__(self):
+        return f"Note[title={self.title}, text={self.text}]"
+
     @property
     def title(self):
         return self.__title
