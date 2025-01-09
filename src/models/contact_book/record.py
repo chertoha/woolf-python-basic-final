@@ -51,7 +51,7 @@ class Record:
         return self.__birthday
 
     @birthday.setter
-    def birthday(self, new_birthday: Birthday):
+    def birthday(self, new_birthday: Birthday | None):
         self.__birthday = new_birthday
 
     @property
