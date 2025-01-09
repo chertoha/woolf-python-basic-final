@@ -6,7 +6,7 @@ from src.models.note_book.note import Note
 @catch
 def add_note(args: List[str]):
     if len(args) < 2:
-        raise WrongArgumentsNumberException("You must provide both a title and text")
+        raise WrongArgumentsNumberException(2)
     
     title, *rest = args
     text = " ".join(rest)

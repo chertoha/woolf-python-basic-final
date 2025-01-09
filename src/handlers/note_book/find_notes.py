@@ -6,7 +6,7 @@ from src.models.organizer import note_book
 @catch
 def find_notes(args: List[str]):
     if len(args) != 1:
-        raise WrongArgumentsNumberException("You must provide exactly one argument: the title of the note.")
+        raise WrongArgumentsNumberException(1)
        
     title = args[0]
     note = note_book.find_note(title)

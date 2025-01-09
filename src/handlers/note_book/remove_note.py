@@ -7,7 +7,7 @@ from src.models.organizer import note_book
 @catch
 def remove_note(args: List[str]):
     if len(args) != 1:
-        raise WrongArgumentsNumberException("You must provide exactly one argument: the title of the note.")
+        raise WrongArgumentsNumberException(1)
     title = args[0]
     resp = note_book.remove_note(title)
     if resp:

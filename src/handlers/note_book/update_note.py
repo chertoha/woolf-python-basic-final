@@ -6,7 +6,7 @@ from src.models.organizer import note_book
 @catch
 def update_note(args: List[str]):
    if len(args) < 2:
-        raise WrongArgumentsNumberException("You must provide both a title and text")
+        raise WrongArgumentsNumberException(2)
    title, *rest = args
    new_text = " ".join(rest)
    note = note_book.find_note(title)
