@@ -21,6 +21,10 @@ class Record:
     @property
     def name(self):
         return self.__name
+    
+    def update_name(self, new_name: str):
+        self.__name = Name(new_name)
+
 
     @name.setter
     def name(self, new_name: Name):
@@ -31,7 +35,7 @@ class Record:
         return self.__address
 
     @address.setter
-    def address(self, new_address: Address):
+    def address(self, new_address: Address | None):
         self.__address = new_address
 
     @property
@@ -47,7 +51,7 @@ class Record:
         return self.__birthday
 
     @birthday.setter
-    def birthday(self, new_birthday: Birthday):
+    def birthday(self, new_birthday: Birthday | None):
         self.__birthday = new_birthday
 
     @property
@@ -56,6 +60,18 @@ class Record:
 
     def add_phone(self, new_phone: str):
         self.__phones.append(Phone(new_phone))
+    
+    def update_phone(self, old_phone: str, new_phone: str):
+        for i, phone in enumerate(self.__phones):
+            if str(phone) == old_phone:
+                self.__phones[i] = Phone(new_phone)
+                return
+
+    def remove_phone(self, searched_phone: str):
+        self.__phones = list(filter(lambda phone: str(
+            phone) != searched_phone, self.__phones))
+
 
     def find_phone(self, searched_phone: str) -> Phone | None:
         return next((phone for phone in self.__phones if str(phone) == searched_phone), None)
+
