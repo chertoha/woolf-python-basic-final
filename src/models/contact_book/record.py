@@ -31,7 +31,7 @@ class Record:
         return self.__address
 
     @address.setter
-    def address(self, new_address: Address):
+    def address(self, new_address: Address | None):
         self.__address = new_address
 
     @property
