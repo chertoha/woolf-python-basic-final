@@ -34,7 +34,11 @@ class ContactBook(UserList[Record]):
         return res
 
     def remove_record(self, searched_name: str) -> None:
-        pass
+        record = self.find_record(searched_name)
+        if record:
+            self.data.remove(record)
+        else:
+            raise ValueError(f"Contact with name '{searched_name}' not found.")
 
     def find_record(self, searched_name: str) -> Record | None:
         return next((record for record in self.data if str(record.name) == searched_name), None)
