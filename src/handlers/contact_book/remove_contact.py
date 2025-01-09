@@ -1,7 +1,24 @@
 from typing import List
+from src.models.contact_book.record import Record
+from src.exceptions.wrong_arguments_number_exception import WrongArgumentsNumberException
 from src.decorators.catch import catch
+from src.models.organizer import contact_book
 
 
 @catch
 def remove_contact(args: List[str]):
-    print("remove_contact")
+
+    if len(args) < 1:
+        raise WrongArgumentsNumberException("Wrong number of arguments. Command should include the contact name.")
+    
+    name = args[0]
+
+    record = contact_book.find_record(name)
+
+    if record is None:
+        raise ValueError(f"Contact with name '{name}' not found.")
+    
+    contact_book.remove_record(name)
+
+    print(f"Contact '{name}' has been removed successfully.")
+
