@@ -10,6 +10,7 @@ class ContactBook(UserList[Record]):
 
     def retrieve_contacts(self, searched_value: str = "") -> List:
         res = []
+        print(searched_value)
 
         for record in self.data:
             name = str(record.name)
@@ -19,12 +20,6 @@ class ContactBook(UserList[Record]):
             phones = [str(phone) for phone in record.phones]
 
             searchable = name + email + address + birthday + " ".join(phones)
-
-            # if (searched_value in name or
-            #         searched_value in email or
-            #         searched_value in address or
-            #         searched_value in birthday or
-            #         searched_value in phones):
 
             if searched_value.lower() in searchable.lower():
                 row = dict(name=name, email=email, address=address,
