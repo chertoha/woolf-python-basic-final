@@ -9,8 +9,8 @@ def find_notes(args: List[str]):
         raise WrongArgumentsNumberException(1)
        
     title = args[0]
-    note = note_book.find_note(title)
-    if note:
+    note = note_book.find_notes_by_partial_title(title)
+    if len(note) != 0:
         print(note)
     else:
         raise KeyError(f"Note with title - {title} does not exist.")

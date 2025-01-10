@@ -7,12 +7,25 @@ class Note():
         self.__title = None
         self.__text = None
 
-        self.__tags: List[Tag] = []
+        self.__tags: set[Tag] = set()
         self.title = title
         self.text = text
 
     def __str__(self):
-        return f"Note[title={self.title}, text={self.text}]"
+        return f"Note[title={self.title}, text={self.text}, tags={self.__tags}]"
+
+    def __repr__(self):
+        return f"Note[title={self.title}, text={self.text}, tags={self.__tags}]"
+    
+    @property
+    def tags(self):
+        return self.__tags
+    @tags.setter
+    def tags(self, new_tag: str):
+        if not new_tag:
+            raise ValueError("Tag cannot be empty")
+        self.__tags = new_tag
+
 
     @property
     def title(self):
@@ -35,7 +48,15 @@ class Note():
         self.__text = new_text
 
     def add_tag(self, new_tag: str):
-        pass
+        self.__tags.add(("#" + new_tag))
 
     def remove_tag(self, searched_tag: str):
-        pass
+        for tag in self.__tags:
+            if tag == ("#" + searched_tag):
+                self.__tags.remove(tag)
+                return True
+        return False
+    
+    
+    
+
