@@ -36,4 +36,22 @@ class NoteBook:
         for note in self.__notes:
             if note.title == old_title:
                 note.title = new_title
+    
+    def get_dump_state(self):
+        state = []
+
+        for note in self.__notes:
+            title = note.title
+            text = note.text
+            tags = note.get_tags()
+
+            state.append({"title": title, "text": text, "tags": tags})
+
+        return state
+
+    def set_dump_state(self, state):
+        for item in state:
+            note = Note(item["title"], item["text"])
+            note.add_tag(" ".join(item["tags"]))
+            self.add_note(note)
         
