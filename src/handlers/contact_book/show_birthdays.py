@@ -9,19 +9,15 @@ from src.models.organizer import contact_book
 def show_birthdays(args: List[str]):
 
     if len(args) < 1:
-        raise WrongArgumentsNumberException(
-            "Wrong number of arguments. You need to specify the number of days."
-        )
+        raise WrongArgumentsNumberException(1)
 
     try:
         days = int(args[0])
     except ValueError:
         raise ValueError("The number of days must be an integer.")
 
-
     today = datetime.today()
     end_date = today + timedelta(days=days)
-
 
     upcoming_birthdays = []
     for record in contact_book:
@@ -37,4 +33,3 @@ def show_birthdays(args: List[str]):
             print(f"- {name}")
     else:
         print("No birthdays in the specified range.")
-
