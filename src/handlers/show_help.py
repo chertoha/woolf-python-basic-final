@@ -4,7 +4,8 @@ from src.cli.commands import commands
 
 
 @catch
-def show_help(args: List[str]):
+def show_help():
+
     print("Available commands:")
     for command, details in commands.items():
         description = details.get("description", "No description available")

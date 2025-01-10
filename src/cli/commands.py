@@ -69,12 +69,18 @@ commands = {
     Commands.FIND_NOTES: {"handler": find_notes, "description": "Search notes by content or title."},
     Commands.FIND_TAGS: {"handler": find_tags, "description": "Search notes by tags."},
 
-    Commands.HELP: {"handler": show_help, "description": "Display help information for available commands."}
+    # Commands.HELP: {"handler": show_help,
+    #                 "description": "Display help information for available commands."}
 }
+
+
 def execute_command(command: str, args: List[str]):
     if command in [cmd.value for cmd in Commands]:
         cmd_enum = Commands(command)
         handler = commands[cmd_enum]["handler"]
         handler(args)
+    elif command in ["help"]:
+        return
     else:
-        raise WrongCommandException(f"Command '{command}' not recognized. Use 'help' to see available commands.")
+        raise WrongCommandException(
+            f"Command '{command}' not recognized. Use 'help' to see available commands.")

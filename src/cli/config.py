@@ -31,7 +31,7 @@ class Commands(Enum):
     FIND_NOTES = "find-notes"
     FIND_TAGS = "find-tags"
 
-    HELP = "help"
+    # HELP = "help"
 
 
 #  birthday Name 12.13.2222

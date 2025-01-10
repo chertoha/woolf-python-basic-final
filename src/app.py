@@ -1,4 +1,5 @@
 import json
+from src.handlers.show_help import show_help
 from src.cli.autocomplete_config import CommandCompleter, autocmplete_style
 from src.cli.config import Commands
 from src.models.contact_book.record import Record
@@ -37,6 +38,9 @@ def app() -> None:
             if command in ["exit", "quit", "end"]:
                 print("Bye!")
                 break
+
+            if command.lower() == "help":
+                show_help()
 
             execute_command(command, args)
             db.save_data(organizer_instance)
