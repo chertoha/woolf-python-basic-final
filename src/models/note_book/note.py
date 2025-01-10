@@ -39,3 +39,6 @@ class Note():
 
     def remove_tag(self, searched_tag: str):
         pass
+
+    def get_tags(self):
+        return [str(tag) for tag in self.__tags]
