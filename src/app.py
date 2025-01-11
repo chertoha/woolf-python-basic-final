@@ -1,10 +1,9 @@
 import json
-<<<<<<< Updated upstream
 from src.handlers.show_help import show_help
-=======
 from src.models.contact_book import address
 from src.models.contact_book.address import Address
->>>>>>> Stashed changes
+from src.models.contact_book import address
+from src.models.contact_book.address import Address
 from src.cli.autocomplete_config import CommandCompleter, autocmplete_style
 from src.cli.config import Commands
 from src.models.contact_book.record import Record
@@ -27,20 +26,10 @@ def app() -> None:
     autocomplete_session = PromptSession(
         completer=CommandCompleter(COMMANDS), style=autocmplete_style)
 
-<<<<<<< Updated upstream
     # for contact in mock_contacts:
     #     record = Record(contact["name"])
     #     for tel in contact["phones"]:
     #         record.add_phone(tel)
-=======
-    for contact in mock_contacts:
-        record = Record(contact["name"])
-        if "address" in contact:
-            record.address = Address(contact["address"])
-
-        for tel in contact["phones"]:
-            record.add_phone(tel)
->>>>>>> Stashed changes
 
     #     contact_book.add_record(record)
 

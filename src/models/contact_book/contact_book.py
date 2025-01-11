@@ -37,8 +37,7 @@ class ContactBook(UserList[Record]):
 
     def find_record(self, searched_name: str) -> Record | None:
         return next((record for record in self.data if str(record.name) == searched_name), None)
-<<<<<<< Updated upstream
-    
+
     def get_dump_state(self):
         state = []
 
@@ -75,12 +74,9 @@ class ContactBook(UserList[Record]):
 
             self.add_record(record)
 
-=======
-
     def show_records(self):
 
         for record in self.data:
             print(record)
 
         # print(Fore.RED, message, err, Style.RESET_ALL)
->>>>>>> Stashed changes

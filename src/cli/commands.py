@@ -82,11 +82,8 @@ def execute_command(command: str, args: List[str]):
     elif command in ["help"]:
         return
     else:
-<<<<<<< Updated upstream
         raise WrongCommandException(
             f"Command '{command}' not recognized. Use 'help' to see available commands.")
-=======
-        raise WrongCommandException()
 
 
 # commands = {
@@ -116,4 +113,3 @@ def execute_command(command: str, args: List[str]):
 
 #     Commands.HELP: show_help
 # }
->>>>>>> Stashed changes
