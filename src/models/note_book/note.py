@@ -7,12 +7,21 @@ class Note():
         self.__title = None
         self.__text = None
 
-        self.__tags: List[Tag] = []
+        self.__tags: set[str] = set()
         self.title = title
         self.text = text
 
     def __str__(self):
-        return f"Note[title={self.title}, text={self.text}]"
+        formatted_tags = ', '.join(f"#{tag}" for tag in self.__tags)
+        return f"Note[title={self.title}, text={self.text}, tags={formatted_tags}]"
+
+    def __repr__(self):
+        return self.__str__()
+    
+    @property
+    def tags(self):
+        return self.__tags
+
 
     @property
     def title(self):
@@ -34,11 +43,13 @@ class Note():
     def text(self, new_text: str):
         self.__text = new_text
 
-    def add_tag(self, new_tag: str):
-        pass
+    def add_tags(self, tags: List[Tag]):
+        self.__tags.update(tags)
 
-    def remove_tag(self, searched_tag: str):
-        pass
+    def remove_tags(self, tags: List[str]):
+        for tag in tags:
+            self.__tags.discard(tag)
+    
 
     def get_tags(self):
         return [str(tag) for tag in self.__tags]

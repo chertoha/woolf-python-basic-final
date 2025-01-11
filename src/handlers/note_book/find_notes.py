@@ -5,13 +5,11 @@ from src.models.organizer import note_book
 
 @catch
 def find_notes(args: List[str]):
-    if len(args) != 1:
-        raise WrongArgumentsNumberException(1)
-       
-    title = args[0]
-    note = note_book.find_note(title)
-    if note:
-        print(note)
+  
+    title = args[0] if len(args) >= 1 else ""
+    notes = note_book.find_notes_by_partial_title(title)
+    if len(notes) != 0:
+        print(notes)
     else:
         raise KeyError(f"Note with title - {title} does not exist.")
 

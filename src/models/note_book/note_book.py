@@ -13,6 +13,9 @@ class NoteBook:
 
     def find_note(self, searched_title: str):
         return next((note for note in self.__notes if note.title == searched_title), None)
+    
+    def find_notes_by_partial_title(self, partial_title: str):
+        return [note for note in self.__notes if note.title.lower().startswith(partial_title.lower())]
         
 
 
@@ -37,6 +40,17 @@ class NoteBook:
             if note.title == old_title:
                 note.title = new_title
     
+
+    def find_tags(self, search_tag):
+        result = []
+        for note in self.__notes:
+            for tag in note.tags:
+                if tag.lower().startswith(search_tag.lower()):
+                    result.append(note)
+        return result
+
+
+   
     def get_dump_state(self):
         state = []
 
@@ -52,6 +66,6 @@ class NoteBook:
     def set_dump_state(self, state):
         for item in state:
             note = Note(item["title"], item["text"])
-            note.add_tag(" ".join(item["tags"]))
+            note.add_tags(" ".join(item["tags"]))
             self.add_note(note)
         
