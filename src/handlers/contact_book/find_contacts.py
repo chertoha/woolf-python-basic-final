@@ -11,4 +11,5 @@ def find_contacts(args: List[str]):
     if len(args) != 0:
         searched_value = args[0]
 
-    pprint(contact_book.retrieve_contacts(searched_value), indent=4)
+    # pprint(contact_book.retrieve_contacts(searched_value), indent=4)
+    contact_book.show_records()

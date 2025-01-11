@@ -1,4 +1,5 @@
 from typing import List
+from src.helpers.logger import Logger
 from src.models.contact_book.record import Record
 from src.exceptions.wrong_arguments_number_exception import WrongArgumentsNumberException
 from src.decorators.catch import catch
@@ -25,4 +26,4 @@ def add_contact(args: List[str]):
     else:
         record.add_phone(phone)
 
-    print("Phone addition success.")
+    Logger.success("Phone addition success.")

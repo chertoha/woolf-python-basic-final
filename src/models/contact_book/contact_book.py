@@ -1,5 +1,9 @@
 from collections import UserList
 from typing import List
+
+from src.models.contact_book.address import Address
+from src.models.contact_book.birthday import Birthday
+from src.models.contact_book.email import Email
 from .record import Record
 
 
@@ -37,7 +41,7 @@ class ContactBook(UserList[Record]):
 
     def find_record(self, searched_name: str) -> Record | None:
         return next((record for record in self.data if str(record.name) == searched_name), None)
-    
+
     def get_dump_state(self):
         state = []
 
@@ -60,17 +64,21 @@ class ContactBook(UserList[Record]):
         for contact in state:
             record = Record(contact["name"])
 
-            if record.birthday != None:
-                record.birthday = contact["birthday"]
+            if contact["birthday"] is not None:
+                record.birthday = Birthday(contact["birthday"])
 
-            if record.email != None:
-                record.email = contact["email"]
+            if contact["email"] is not None:
+                record.email = Email(contact["email"])
 
-            if record.address != None:
-                record.address = contact["address"]
+            if contact["address"] is not None:
+                record.address = Address(contact["address"])
 
             for phone in contact["phones"]:
                 record.add_phone(phone)
 
             self.add_record(record)
 
+    def show_records(self):
+
+        for record in self.data:
+            print(record)
