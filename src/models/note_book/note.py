@@ -7,7 +7,7 @@ class Note():
         self.__title = None
         self.__text = None
 
-        self.__tags: set[Tag] = set()
+        self.__tags: set[str] = set()
         self.title = title
         self.text = text
 
@@ -21,11 +21,6 @@ class Note():
     @property
     def tags(self):
         return self.__tags
-    @tags.setter
-    def tags(self, new_tag: str):
-        if not new_tag:
-            raise ValueError("Tag cannot be empty")
-        self.__tags = new_tag
 
 
     @property
@@ -48,7 +43,7 @@ class Note():
     def text(self, new_text: str):
         self.__text = new_text
 
-    def add_tags(self, tags: List[str]):
+    def add_tags(self, tags: List[Tag]):
         self.__tags.update(tags)
 
     def remove_tags(self, tags: List[str]):

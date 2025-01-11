@@ -7,4 +7,4 @@ class Tag(Field):
         super().__init__(value)
 
     def __str__(self) -> str:
-        return str("#" + self._value)
+        return str(self._value)
