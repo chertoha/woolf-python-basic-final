@@ -4,6 +4,7 @@ from src.models.contact_book.address import Address
 from src.decorators.catch import catch
 from src.exceptions.wrong_arguments_number_exception import WrongArgumentsNumberException
 from src.models.organizer import contact_book
+from src.helpers.logger import Logger
 
 
 @catch
@@ -21,4 +22,4 @@ def add_address(args: List[str]):
 
     record.address = Address(address)
 
-    print(f"Address successfully changed for {address}")
+    Logger.success(f"Address successfully changed for {address}")

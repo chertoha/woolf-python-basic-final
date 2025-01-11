@@ -4,6 +4,7 @@ from src.decorators.catch import catch
 from src.exceptions.wrong_arguments_number_exception import WrongArgumentsNumberException
 from src.models.organizer import contact_book
 from src.exceptions.non_existed_record_exception import NonExistedException
+from src.helpers.logger import Logger
 
 
 @catch
@@ -21,4 +22,4 @@ def clear_address(args: List[str]):
 
     record.address = None
 
-    print("Address successfully cleared")
+    Logger.success("Address successfully cleared")

@@ -4,6 +4,7 @@ from src.exceptions.wrong_arguments_number_exception import WrongArgumentsNumber
 from src.decorators.catch import catch
 from src.models.organizer import contact_book
 from src.decorators.confirm import confirm
+from src.helpers.logger import Logger
 
 
 @catch
@@ -22,4 +23,4 @@ def remove_contact(args: List[str]):
 
     contact_book.remove_record(name)
 
-    print(f"Contact '{name}' has been removed successfully.")
+    Logger.success(f"Contact '{name}' has been removed successfully.")
