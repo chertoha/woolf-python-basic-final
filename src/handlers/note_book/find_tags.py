@@ -14,7 +14,7 @@ def find_tags(args: List[str]):
     if len(result) != 0:
         print(result)
     else:
-        raise ValueError(f"Nothing found with this tag - {search_tag}")
+        print(f"Nothing found with this tag - {search_tag}")
     
     
     

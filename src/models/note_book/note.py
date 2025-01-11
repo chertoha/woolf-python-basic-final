@@ -12,10 +12,11 @@ class Note():
         self.text = text
 
     def __str__(self):
-        return f"Note[title={self.title}, text={self.text}, tags={self.__tags}]"
+        formatted_tags = ', '.join(f"#{tag}" for tag in self.__tags)
+        return f"Note[title={self.title}, text={self.text}, tags={formatted_tags}]"
 
     def __repr__(self):
-        return f"Note[title={self.title}, text={self.text}, tags={self.__tags}]"
+        return self.__str__()
     
     @property
     def tags(self):
@@ -47,16 +48,13 @@ class Note():
     def text(self, new_text: str):
         self.__text = new_text
 
-    def add_tag(self, new_tag: str):
-        self.__tags.add(("#" + new_tag))
+    def add_tags(self, tags: List[str]):
+        self.__tags.update(tags)
 
-    def remove_tag(self, searched_tag: str):
-        for tag in self.__tags:
-            if tag == ("#" + searched_tag):
-                self.__tags.remove(tag)
-                return True
-        return False
-    
-    
+    def remove_tags(self, tags: List[str]):
+        for tag in tags:
+            self.__tags.discard(tag)
     
 
+    def get_tags(self):
+        return [str(tag) for tag in self.__tags]

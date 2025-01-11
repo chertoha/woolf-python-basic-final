@@ -43,7 +43,6 @@ class NoteBook:
 
     def find_tags(self, search_tag):
         result = []
-        search_tag = "#" + search_tag
         for note in self.__notes:
             for tag in note.tags:
                 if tag.lower().startswith(search_tag.lower()):
@@ -52,3 +51,21 @@ class NoteBook:
 
 
    
+    def get_dump_state(self):
+        state = []
+
+        for note in self.__notes:
+            title = note.title
+            text = note.text
+            tags = note.get_tags()
+
+            state.append({"title": title, "text": text, "tags": tags})
+
+        return state
+
+    def set_dump_state(self, state):
+        for item in state:
+            note = Note(item["title"], item["text"])
+            note.add_tags(" ".join(item["tags"]))
+            self.add_note(note)
+        

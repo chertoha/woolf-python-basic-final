@@ -37,3 +37,40 @@ class ContactBook(UserList[Record]):
 
     def find_record(self, searched_name: str) -> Record | None:
         return next((record for record in self.data if str(record.name) == searched_name), None)
+    
+    def get_dump_state(self):
+        state = []
+
+        for record in self.data:
+            name = str(record.name)
+            address = str(
+                record.address) if record.address is not None else None
+            email = str(record.email) if record.email is not None else None
+            birthday = str(
+                record.birthday) if record.birthday is not None else None
+            phones = [str(phone) for phone in record.phones]
+
+            state.append(
+                {"name": name, "phones": phones, "birthday": birthday, "address": address, "email": email})
+
+        return state
+
+    def set_dump_state(self, state):
+
+        for contact in state:
+            record = Record(contact["name"])
+
+            if record.birthday != None:
+                record.birthday = contact["birthday"]
+
+            if record.email != None:
+                record.email = contact["email"]
+
+            if record.address != None:
+                record.address = contact["address"]
+
+            for phone in contact["phones"]:
+                record.add_phone(phone)
+
+            self.add_record(record)
+

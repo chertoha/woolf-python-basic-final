@@ -2,18 +2,19 @@ from typing import List
 from src.decorators.catch import catch
 from src.exceptions.wrong_arguments_number_exception import WrongArgumentsNumberException
 from src.models.organizer import note_book
+from src.decorators.confirm import confirm
+
 
 @catch
+@confirm("Ви впевнені, що хочете видалити ці теги?")
 def remove_tags(args: List[str]):
     if len(args) != 2:
         WrongArgumentsNumberException(2)
-    title, tag = args
+    title, *tags = args
     note = note_book.find_note(title)
     if note:
-        old_tag = note.remove_tag(tag)
-        if old_tag:
-            print(f"Tag - {tag} successfully deleted.", note)
-        else:
-            print(f"Tag - {tag} doesn't exist")
+        note.remove_tags(tags)
+        print(f"Tag - {tags} successfully deleted.", note)
+        
     else:
         raise KeyError(f"Note with title - {title} doesn't exist")

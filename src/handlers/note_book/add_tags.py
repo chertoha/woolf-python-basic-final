@@ -5,13 +5,13 @@ from src.models.organizer import note_book
 
 @catch
 def add_tags(args: List[str]):
-    if len(args) != 2:
+    if len(args) < 2:
         WrongArgumentsNumberException(2)
-    title, new_tag = args
+    title, *tags = args
     note = note_book.find_note(title)
     if note:
-       note.add_tag(new_tag)
-       print(f"Tag - '{new_tag}' successfully added.", note)
+       note.add_tags(tags)
+       print(f"Tag - '{tags}' successfully added.", note)
        
     else:
         raise KeyError(f"Note with title - {title} doesn't exist")
