@@ -5,8 +5,7 @@ from .birthday import Birthday
 from .email import Email
 from .name import Name
 from .phone import Phone
-from colorama import Fore, Style
-import textwrap
+from colorama import Fore
 
 
 class Record:
@@ -104,7 +103,7 @@ class Record:
 
         res += "│{:<55}│\n".format(f"\033[1mAddress\033[0m{COLOR}")
         res += "│" + " " * 42 + "│\n"
-        res += "│{:<42}│\n".format("│\n".join(textwrap.wrap(address, 40)))
+        res += "│{:<42}│\n".format(address)
         res += "├" + "─" * 10 + "┴" + "─" * 31 + "┤\n"
 
         res += "│{:<55}│\n".format(f"\033[1mPhones\033[0m{COLOR}")

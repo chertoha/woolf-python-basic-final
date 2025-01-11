@@ -56,6 +56,7 @@ class ContactBook(UserList[Record]):
 
             state.append(
                 {"name": name, "phones": phones, "birthday": birthday, "address": address, "email": email})
+
         return state
 
     def set_dump_state(self, state):
@@ -81,5 +82,3 @@ class ContactBook(UserList[Record]):
 
         for record in self.data:
             print(record)
-
-        # print(Fore.RED, message, err, Style.RESET_ALL)
