@@ -1,4 +1,5 @@
 from typing import List
+from src.helpers.logger import Logger
 from src.decorators.catch import catch
 from src.exceptions.wrong_arguments_number_exception import WrongArgumentsNumberException
 from src.models.organizer import note_book
@@ -14,7 +15,7 @@ def remove_tags(args: List[str]):
     note = note_book.find_note(title)
     if note:
         note.remove_tags(tags)
-        print(f"Tag - {tags} successfully deleted.", note)
-        
+        Logger.success(f"Tag - {tags} successfully deleted.")
+
     else:
         raise KeyError(f"Note with title - {title} doesn't exist")
