@@ -1,4 +1,5 @@
 from typing import List
+from src.helpers.logger import Logger
 from src.decorators.catch import catch
 from src.exceptions.wrong_arguments_number_exception import WrongArgumentsNumberException
 from src.models.organizer import note_book
@@ -8,14 +9,10 @@ from src.models.organizer import note_book
 def find_tags(args: List[str]):
     if len(args) != 1:
         WrongArgumentsNumberException(1)
-    
+
     search_tag = args[0]
     result = note_book.find_tags(search_tag)
     if len(result) != 0:
-        print(result)
+        note_book.show_notes(result)
     else:
-        print(f"Nothing found with this tag - {search_tag}")
-    
-    
-    
-
+        Logger.warning(f"Nothing found with this tag - {search_tag}")
