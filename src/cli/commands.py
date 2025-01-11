@@ -82,5 +82,38 @@ def execute_command(command: str, args: List[str]):
     elif command in ["help"]:
         return
     else:
+<<<<<<< Updated upstream
         raise WrongCommandException(
             f"Command '{command}' not recognized. Use 'help' to see available commands.")
+=======
+        raise WrongCommandException()
+
+
+# commands = {
+#     Commands.FIND_CONTACTS: {"handler":find_contacts, "description": "" },
+#     Commands.ADD_CONTACT: add_contact,
+#     Commands.REMOVE_CONTACT: remove_contact,
+#     Commands.UPDATE_NAME: update_name,
+#     Commands.ADD_PHONE: add_phone,
+#     Commands.UPDATE_PHONE: update_phone,
+#     Commands.REMOVE_PHONE: remove_phone,
+#     Commands.ADD_ADDRESS: add_address,
+#     Commands.CLEAR_ADDRESS: clear_address,
+#     Commands.ADD_EMAIL: add_email,
+#     Commands.CLEAR_EMAIL: clear_email,
+#     Commands.ADD_BIRTHDAY: add_birthday,
+#     Commands.CLEAR_BIRTHDAY: clear_birthday,
+#     Commands.BIRTHDAYS: show_birthdays,
+
+#     Commands.ADD_NOTE: add_note,
+#     Commands.UPDATE_NOTE: update_note,
+#     Commands.UPDATE_NOTE_TITLE: update_note_title,
+#     Commands.REMOVE_NOTE: remove_note,
+#     Commands.ADD_TAGS: add_tags,
+#     Commands.REMOVE_TAGS: remove_tags,
+#     Commands.FIND_NOTES: find_notes,
+#     Commands.FIND_TAGS: find_tags,
+
+#     Commands.HELP: show_help
+# }
+>>>>>>> Stashed changes
