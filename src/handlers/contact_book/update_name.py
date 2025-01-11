@@ -3,6 +3,7 @@ from src.models.contact_book.record import Record
 from src.exceptions.wrong_arguments_number_exception import WrongArgumentsNumberException
 from src.decorators.catch import catch
 from src.models.organizer import contact_book
+from src.helpers.logger import Logger
 
 
 @catch
@@ -22,4 +23,4 @@ def update_name(args: List[str]):
 
     record.update_name(new_name)
 
-    print(f"Name updated for {new_name}.")
+    Logger.success(f"Name updated for {new_name}.")

@@ -13,22 +13,30 @@ class ContactBook(UserList[Record]):
         self.data.append(record)
 
     def retrieve_contacts(self, searched_value: str = "") -> List:
+
+        if searched_value == "":
+            return self.data
+
         res = []
-        print(searched_value)
 
         for record in self.data:
-            name = str(record.name)
-            email = str(record.email)
-            address = str(record.address)
-            birthday = str(record.birthday)
-            phones = [str(phone) for phone in record.phones]
 
-            searchable = name + email + address + birthday + " ".join(phones)
+            name = str(record.name).lower()
+            email = str(record.email).lower(
+            ) if record.email is not None else ""
+            address = str(record.address).lower(
+            ) if record.address is not None else ""
+            birthday = str(
+                record.birthday).lower() if record.birthday is not None else ""
+            phones = [str(phone).lower() for phone in record.phones]
 
-            if searched_value.lower() in searchable.lower():
-                row = dict(name=name, email=email, address=address,
-                           birthday=birthday, phones=phones)
-                res.append(row)
+            if (searched_value.lower() in name or
+                    searched_value in email or
+                    searched_value in address or
+                    searched_value in birthday or
+                    searched_value in phones):
+
+                res.append(record)
 
         return res
 
@@ -78,7 +86,7 @@ class ContactBook(UserList[Record]):
 
             self.add_record(record)
 
-    def show_records(self):
+    def show_records(self, records: List[Record]):
 
-        for record in self.data:
+        for record in records:
             print(record)

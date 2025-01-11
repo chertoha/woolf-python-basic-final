@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 from src.exceptions.wrong_arguments_number_exception import WrongArgumentsNumberException
 from src.decorators.catch import catch
 from src.models.organizer import contact_book
+from src.helpers.logger import Logger
 
 
 @catch
@@ -32,4 +33,4 @@ def show_birthdays(args: List[str]):
         for name in upcoming_birthdays:
             print(f"- {name}")
     else:
-        print("No birthdays in the specified range.")
+        Logger.warning("No birthdays in the specified range.")

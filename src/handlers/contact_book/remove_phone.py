@@ -4,6 +4,7 @@ from src.models.contact_book.record import Record
 from src.exceptions.wrong_arguments_number_exception import WrongArgumentsNumberException
 from src.decorators.catch import catch
 from src.models.organizer import contact_book
+from src.helpers.logger import Logger
 
 
 @catch
@@ -26,4 +27,4 @@ def remove_phone(args: List[str]):
 
     record.remove_phone(phone)
 
-    print(f"Phone number '{phone}' removed from contact '{name}'.")
+    Logger.success(f"Phone number '{phone}' removed from contact '{name}'.")
