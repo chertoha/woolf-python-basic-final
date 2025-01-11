@@ -1,11 +1,13 @@
 import os
 from typing import List
+
+from src.helpers.wrap_text import wrap_text
 from .address import Address
 from .birthday import Birthday
 from .email import Email
 from .name import Name
 from .phone import Phone
-from colorama import Fore
+from colorama import Fore, Style
 
 
 class Record:
@@ -86,30 +88,41 @@ class Record:
         birthday = str(self.birthday) if self.birthday is not None else "-"
         address = str(self.address) if self.address is not None else "-"
 
-        COLOR = Fore.YELLOW
+        wrapped_address = wrap_text(address, 40)
 
-        res = f"{COLOR}"
+        TAB_COLOR = Fore.CYAN
+        TEXT_COLOR = Fore.LIGHTBLACK_EX
+
+        res = f"{TAB_COLOR}"
 
         res += "┌" + "─" * 10 + "┬" + "─" * 31 + "┐\n"
-        res += "│{:<23}│ {:<30}│\n".format(
-            f"\033[1mName\033[0m{COLOR}", name)
-        res += "├" + "─" * 10 + "┼" + "─" * 31 + "┤\n"
-        res += "│{:<23}│ {:<30}│\n".format(
-            f"\033[1mEmail\033[0m{COLOR}", email)
-        res += "├" + "─" * 10 + "┼" + "─" * 31 + "┤\n"
-        res += "│{:<23}│ {:<30}│\n".format(
-            f"\033[1mBirthday\033[0m{COLOR}", birthday)
+
+        res += "│{:<23}│ {:<40}│\n".format(
+            f"\033[1mName\033[0m{TAB_COLOR}", f"{TEXT_COLOR}{name}{TAB_COLOR}")
+
         res += "├" + "─" * 10 + "┼" + "─" * 31 + "┤\n"
 
-        res += "│{:<55}│\n".format(f"\033[1mAddress\033[0m{COLOR}")
-        res += "│" + " " * 42 + "│\n"
-        res += "│{:<42}│\n".format(address)
+        res += "│{:<23}│ {:<40}│\n".format(
+            f"\033[1mEmail\033[0m{TAB_COLOR}", f"{TEXT_COLOR}{email}{TAB_COLOR}")
+
+        res += "├" + "─" * 10 + "┼" + "─" * 31 + "┤\n"
+
+        res += "│{:<23}│ {:<40}│\n".format(
+            f"\033[1mBirthday\033[0m{TAB_COLOR}", f"{TEXT_COLOR}{birthday}{TAB_COLOR}")
+
         res += "├" + "─" * 10 + "┴" + "─" * 31 + "┤\n"
 
-        res += "│{:<55}│\n".format(f"\033[1mPhones\033[0m{COLOR}")
+        res += "│{:<55}│\n".format(f"\033[1mAddress\033[0m{TAB_COLOR}")
+        res += "│" + " " * 42 + "│\n"
+        for row in wrapped_address:
+            res += "│{:<52}│\n".format(f"{TEXT_COLOR}{str(row)}{TAB_COLOR}")
 
+        res += "├" + "─" * 10 + "─" + "─" * 31 + "┤\n"
+
+        res += "│{:<55}│\n".format(f"\033[1mPhones\033[0m{TAB_COLOR}")
+        res += "│" + " " * 42 + "│\n"
         for phone in self.phones:
-            res += "│{:<42}│\n".format(str(phone))
+            res += "│{:<52}│\n".format(f"{TEXT_COLOR}{str(phone)}{TAB_COLOR}")
 
         res += "└" + "─" * 42 + "┘\n"
 
