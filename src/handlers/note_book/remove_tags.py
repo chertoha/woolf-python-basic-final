@@ -7,7 +7,7 @@ from src.decorators.confirm import confirm
 
 
 @catch
-@confirm("Ви впевнені, що хочете видалити ці теги?")
+@confirm("Are you sure you want to delete these tags?")
 def remove_tags(args: List[str]):
     if len(args) != 2:
         WrongArgumentsNumberException(2)

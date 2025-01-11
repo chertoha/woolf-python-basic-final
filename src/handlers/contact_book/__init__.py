@@ -2,7 +2,6 @@ from .add_address import add_address
 from .add_birthday import add_birthday
 from .add_contact import add_contact
 from .add_email import add_email
-from .add_phone import add_phone
 from .clear_address import clear_address
 from .clear_birthday import clear_birthday
 from .clear_email import clear_email
@@ -18,7 +17,6 @@ __all__ = [
     "add_birthday",
     "add_contact",
     "add_email",
-    "add_phone",
     "clear_address",
     "clear_birthday",
     "clear_email",

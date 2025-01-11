@@ -46,7 +46,7 @@ class Record:
         return self.__email
 
     @email.setter
-    def email(self, new_email: Email):
+    def email(self, new_email: Email | None):
         self.__email = new_email
 
     @property
