@@ -1,4 +1,5 @@
-import json
+# import json
+from src.helpers.logger import Logger
 from src.handlers.show_help import show_help
 from src.models.contact_book import address
 from src.models.contact_book.address import Address
@@ -50,4 +51,5 @@ def app() -> None:
             db.save_data(organizer_instance)
 
         except Exception as err:
-            print(err)
+            # print(err)
+            Logger.error(err)

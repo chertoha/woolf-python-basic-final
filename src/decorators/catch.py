@@ -1,3 +1,4 @@
+from src.helpers.logger import Logger
 from src.exceptions.wrong_command_exception import WrongCommandException
 from functools import wraps
 
@@ -10,12 +11,15 @@ def catch(func):
             return func(*args, **kwargs)
 
         except WrongCommandException as err:
-            print(err)
+            # print(err)
+            Logger.error(err)
 
         except ValueError as err:
-            print(err)
+            # print(err)
+            Logger.error(err)
 
         except Exception as err:
-            print(err)
+            # print(err)
+            Logger.error(err)
 
     return inner
