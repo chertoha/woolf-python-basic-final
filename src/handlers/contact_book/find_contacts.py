@@ -14,5 +14,7 @@ def find_contacts(args: List[str]):
 
     if len(records) != 0:
         contact_book.show_records(records)
+    elif query == "":
+        Logger.warning(f"We found zero contacts. Don't be lazy, add some ;)")
     else:
         Logger.warning(f"Nothing found for query '{query}'")
