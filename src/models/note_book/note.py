@@ -69,7 +69,7 @@ class Note():
         res += "┌" + "─" * 10 + "┬" + "─" * 31 + "┐\n"
 
         res += "│{:<23}│ {:<40}│\n".format(
-            f"\033[1mName\033[0m{TAB_COLOR}", f"{TEXT_COLOR}{title}{TAB_COLOR}")
+            f"\033[1mTitle\033[0m{TAB_COLOR}", f"{TEXT_COLOR}{title}{TAB_COLOR}")
 
         res += "├" + "─" * 10 + "┴" + "─" * 31 + "┤\n"
 
