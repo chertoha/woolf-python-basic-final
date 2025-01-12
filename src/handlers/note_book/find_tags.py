@@ -8,7 +8,7 @@ from src.models.organizer import note_book
 @catch
 def find_tags(args: List[str]):
     if len(args) != 1:
-        WrongArgumentsNumberException(1)
+        raise WrongArgumentsNumberException(1)
 
     search_tag = args[0]
     result = note_book.find_tags(search_tag)

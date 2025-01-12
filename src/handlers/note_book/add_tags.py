@@ -8,12 +8,12 @@ from src.models.note_book.tag import Tag
 @catch
 def add_tags(args: List[str]):
     if len(args) < 2:
-        WrongArgumentsNumberException(2)
+        raise WrongArgumentsNumberException(2)
     title, *tags = args
     note = note_book.find_note(title)
     if note:
         note.add_tags(tags)
-        print(f"Tags - '{tags}' successfully added.")
+        print(f"Tags - '{tags}' successfully added.", note)
 
     else:
         raise KeyError(f"Note with title - {title} doesn't exist")

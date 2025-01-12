@@ -10,12 +10,17 @@ from src.decorators.confirm import confirm
 @confirm("Are you sure you want to delete these tags?")
 def remove_tags(args: List[str]):
     if len(args) != 2:
-        WrongArgumentsNumberException(2)
+       raise WrongArgumentsNumberException(2)
     title, *tags = args
     note = note_book.find_note(title)
     if note:
+        tags_set = set(tags)  
+        common_tags = tags_set.intersection(note.tags)
+        if not common_tags:
+            return
+        
         note.remove_tags(tags)
-        Logger.success(f"Tag - {tags} successfully deleted.")
+        Logger.success(f"Tag - {tags} successfully deleted.", note)
 
     else:
         raise KeyError(f"Note with title - {title} doesn't exist")

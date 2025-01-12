@@ -15,4 +15,4 @@ def remove_note(args: List[str]):
     if resp:
         print(f"Note with this title - {title} successfully deleted.")
     else:
-        print(f"Note with title - {title} does not exist.")
+        raise KeyError(f"Note with title - {title} does not exist.")
