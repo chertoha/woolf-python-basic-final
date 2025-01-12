@@ -1,6 +1,6 @@
 from collections import UserList
 from typing import List
-
+from datetime import datetime, timedelta
 from src.models.contact_book.address import Address
 from src.models.contact_book.birthday import Birthday
 from src.models.contact_book.email import Email
@@ -29,12 +29,13 @@ class ContactBook(UserList[Record]):
             birthday = str(
                 record.birthday).lower() if record.birthday is not None else ""
             phones = [str(phone).lower() for phone in record.phones]
+            stringyfied_phones = " ".join(phones)
 
             if (searched_value.lower() in name or
                     searched_value in email or
                     searched_value in address or
                     searched_value in birthday or
-                    searched_value in phones):
+                    searched_value in stringyfied_phones):
 
                 res.append(record)
 
@@ -90,3 +91,39 @@ class ContactBook(UserList[Record]):
 
         for record in records:
             print(record)
+
+    def get_upcoming_birthdays(self, days):
+        current_date = datetime.today().date()
+
+        res = []
+
+        for record in self.data:
+
+            birthday = record.birthday
+
+            if birthday == None:
+                continue
+
+            date = birthday.to_datetime()
+
+            comparing_year = current_date.year
+            if (date.month, date.day) < (current_date.month, current_date.day):
+                comparing_year += 1
+
+            comparing_date = datetime(
+                comparing_year, date.month, date.day).date()
+
+            if comparing_date < current_date or comparing_date >= current_date + timedelta(days=days):
+                continue
+
+            congrats_date = comparing_date
+
+            if comparing_date.weekday() == 5:
+                congrats_date = comparing_date + timedelta(days=2)
+            elif comparing_date.weekday() == 6:
+                congrats_date = comparing_date + timedelta(days=1)
+
+            res.append(
+                {"name": str(record.name), "birthday_date": date, 'congratulation_date': congrats_date.strftime("%d.%m.%Y")})
+
+        return sorted(res, key=lambda elem: elem["congratulation_date"])
