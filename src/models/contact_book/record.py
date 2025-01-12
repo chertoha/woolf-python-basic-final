@@ -7,7 +7,7 @@ from .birthday import Birthday
 from .email import Email
 from .name import Name
 from .phone import Phone
-from colorama import Fore, Style
+from colorama import Fore
 
 
 class Record:

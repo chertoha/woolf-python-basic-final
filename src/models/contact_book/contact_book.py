@@ -5,6 +5,8 @@ from src.models.contact_book.address import Address
 from src.models.contact_book.birthday import Birthday
 from src.models.contact_book.email import Email
 from .record import Record
+import os
+from colorama import Fore
 
 
 class ContactBook(UserList[Record]):
@@ -124,6 +126,45 @@ class ContactBook(UserList[Record]):
                 congrats_date = comparing_date + timedelta(days=1)
 
             res.append(
-                {"name": str(record.name), "birthday_date": date, 'congratulation_date': congrats_date.strftime("%d.%m.%Y")})
+                {"name": str(record.name), "birthday_date": date.strftime("%d.%m.%Y"), 'congratulation_date': congrats_date.strftime("%d.%m.%Y")})
 
         return sorted(res, key=lambda elem: elem["congratulation_date"])
+
+    def show_birthdays(self, birthdays):
+
+        terminal_width = os.get_terminal_size().columns
+        print(terminal_width)
+        if terminal_width < 50:
+            raise Exception(f"The width of terminal is {
+                            terminal_width}. Please set width not less than 50")
+
+        TAB_COLOR = Fore.YELLOW
+        TEXT_COLOR = Fore.LIGHTBLACK_EX
+
+        for birthday in birthdays:
+
+            name = birthday["name"]
+            birthday_date = birthday["birthday_date"]
+            congratulation_date = birthday["congratulation_date"]
+
+            res = f"{TAB_COLOR}"
+            res += "┌" + "─" * 17 + "┬" + "─" * 25 + "┐\n"
+
+            res += "│{:<30}│ {:<34}│\n".format(
+                f"\033[1mName\033[0m{TAB_COLOR}", f"{TEXT_COLOR}{name}{TAB_COLOR}")
+
+            res += "├" + "─" * 17 + "┼" + "─" * 25 + "┤\n"
+
+            res += "│{:<30}│ {:<34}│\n".format(
+                f"\033[1mBirthday\033[0m{TAB_COLOR}", f"{TEXT_COLOR}{birthday_date}{TAB_COLOR}")
+
+            res += "├" + "─" * 17 + "┼" + "─" * 25 + "┤\n"
+
+            res += "│{:<30}│ {:<34}│\n".format(
+                f"\033[1mCongratulation\033[0m{TAB_COLOR}", f"{TEXT_COLOR}{congratulation_date}{TAB_COLOR}")
+            res += "│{:<30}│{:25}│\n".format(
+                f"\033[1mdate\033[0m{TAB_COLOR}", " ")
+
+            res += "└" + "─" * 17 + "┴" + "─" * 25 + "┘\n"
+
+            print(res)
