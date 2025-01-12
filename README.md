@@ -6,15 +6,15 @@ It includes commands for adding, updating, searching, and removing contacts and 
 as well as managing tags and additional fields like addresses, birthdays, and emails.
 
 ## Installation
+```sh
 Pull repository locally
-
 git pull https://github.com/chertoha/woolf-python-basic-final.git
+
 
 Create a virtual environment:
 python -m venv venv
 
 Activate virtual environment:
-
 Windows:
 .\venv\Scripts\activate
 
@@ -25,8 +25,8 @@ Install dependencies from the requirements.txt file:
 pip install -r requirements.txt
 
 Start CLI application:
-
 python main.py
+```
 ---
 
 ## Contact Management Commands
