@@ -27,7 +27,6 @@ def show_birthdays(args: List[str]):
             if today <= birthday_this_year <= end_date:
                 upcoming_birthdays.append(record.name)
 
-    # Виведення результату
     if upcoming_birthdays:
         print("Upcoming birthdays:")
         for name in upcoming_birthdays:
