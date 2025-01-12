@@ -7,6 +7,7 @@ as well as managing tags and additional fields like addresses, birthdays, and em
 
 ## Installation
 Pull repository locally
+
 git pull https://github.com/chertoha/woolf-python-basic-final.git
 
 Create a virtual environment:
@@ -23,6 +24,9 @@ source venv/bin/activate
 Install dependencies from the requirements.txt file:
 pip install -r requirements.txt
 
+Start CLI application:
+
+python main.py
 ---
 
 ## Contact Management Commands
