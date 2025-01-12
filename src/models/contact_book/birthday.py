@@ -13,3 +13,13 @@ class Birthday(Field):
 
     def __str__(self) -> str:
         return datetime.strftime(self._value, "%d.%m.%Y")
+    
+    def to_datetime(self):
+        return self._value
+    
+    @property
+    def value(self):
+        return self._value
+
+
+
