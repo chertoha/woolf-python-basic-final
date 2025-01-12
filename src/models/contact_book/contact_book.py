@@ -123,6 +123,6 @@ class ContactBook(UserList[Record]):
                 congrats_date = comparing_date + timedelta(days=1)
 
             res.append(
-                {"name": record.name.value, "birthday_date": date, 'congratulation_date': congrats_date.strftime("%d.%m.%Y")})
+                {"name": str(record.name), "birthday_date": date, 'congratulation_date': congrats_date.strftime("%d.%m.%Y")})
 
         return sorted(res, key=lambda elem: elem["congratulation_date"])
