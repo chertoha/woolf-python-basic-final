@@ -6,6 +6,9 @@ It includes commands for adding, updating, searching, and removing contacts and 
 as well as managing tags and additional fields like addresses, birthdays, and emails.
 
 ## Installation
+Pull repository locally
+git pull https://github.com/chertoha/woolf-python-basic-final.git
+
 Create a virtual environment:
 python -m venv venv
 
