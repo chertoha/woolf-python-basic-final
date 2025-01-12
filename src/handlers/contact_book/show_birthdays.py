@@ -8,7 +8,7 @@ from src.helpers.logger import Logger
 @catch
 def show_birthdays(args: List[str]):
     if len(args) < 1:
-        raise WrongArgumentsNumberException("Please specify the number of days.")
+        raise WrongArgumentsNumberException(1)
 
     try:
         days = int(args[0])
