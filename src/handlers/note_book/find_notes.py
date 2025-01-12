@@ -12,5 +12,7 @@ def find_notes(args: List[str]):
     notes = note_book.find_notes_by_partial_title(query)
     if len(notes) != 0:
         note_book.show_notes(notes)
+    elif query == "":
+        Logger.warning(f"No notes yet! You can create few ;)")
     else:
         Logger.warning(f"Nothing found for query '{query}'")

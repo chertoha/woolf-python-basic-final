@@ -30,21 +30,3 @@ class Commands(Enum):
     REMOVE_TAGS = "remove-tags"
     FIND_NOTES = "find-notes"
     FIND_TAGS = "find-tags"
-
-    # HELP = "help"
-
-
-#  birthday Name 12.13.2222
-#  email Name sdfsfd@asdd.cpm
-#
-#
-# add-note Title Text
-# update-note Title
-#
-#
-# add-tags Title askldl as;ldk asda;lsd asda sdasd
-#
-
-
-# @sure_remove
-# def remove_contact():
