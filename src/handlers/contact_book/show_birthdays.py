@@ -19,11 +19,8 @@ def show_birthdays(args: List[str]):
 
     if upcoming_birthdays:
         print("Upcoming birthdays:")
-        for birthday in upcoming_birthdays:
-            print(
-                f"- {birthday['name']
-                     } (Birthday: {birthday['birthday_date']}, "
-                f"Congratulation Date: {birthday['congratulation_date']})"
-            )
+
+        contact_book.show_birthdays(upcoming_birthdays)
+
     else:
         Logger.warning("No birthdays in the specified range.")
