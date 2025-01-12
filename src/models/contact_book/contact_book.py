@@ -29,12 +29,13 @@ class ContactBook(UserList[Record]):
             birthday = str(
                 record.birthday).lower() if record.birthday is not None else ""
             phones = [str(phone).lower() for phone in record.phones]
+            stringyfied_phones = " ".join(phones)
 
             if (searched_value.lower() in name or
                     searched_value in email or
                     searched_value in address or
                     searched_value in birthday or
-                    searched_value in phones):
+                    searched_value in stringyfied_phones):
 
                 res.append(record)
 
