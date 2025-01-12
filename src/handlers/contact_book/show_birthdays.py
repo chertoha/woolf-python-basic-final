@@ -8,29 +8,23 @@ from src.helpers.logger import Logger
 @catch
 def show_birthdays(args: List[str]):
     if len(args) < 1:
-        raise WrongArgumentsNumberException(1)
+        raise WrongArgumentsNumberException("Please specify the number of days.")
 
     try:
         days = int(args[0])
     except ValueError:
         raise ValueError("The number of days must be an integer.")
 
-    today = datetime.today().date()
-    end_date = today + timedelta(days=days)
+    # Отримуємо дні народження
+    upcoming_birthdays = contact_book.get_upcoming_birthdays(days)
 
-    upcoming_birthdays = []
-    for record in contact_book:
-        if record.birthday:
-            birthday_date = record.birthday.to_datetime().date()
-            birthday_this_year = birthday_date.replace(year=today.year)
-
-            if today <= birthday_this_year <= end_date:
-                upcoming_birthdays.append(f"{record.name} - {birthday_this_year.strftime('%d %B')}")
-
+    # Виводимо результат
     if upcoming_birthdays:
         print("Upcoming birthdays:")
         for birthday in upcoming_birthdays:
-            print(f"- {birthday}")
+            print(
+                f"- {birthday['name']} (Birthday: {birthday['birthday_date']}, "
+                f"Congratulation Date: {birthday['congratulation_date']})"
+            )
     else:
         Logger.warning("No birthdays in the specified range.")
-

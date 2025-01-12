@@ -16,10 +16,3 @@ class Birthday(Field):
     
     def to_datetime(self):
         return self._value
-    
-    @property
-    def value(self):
-        return self._value
-
-
-
