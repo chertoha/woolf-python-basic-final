@@ -3,6 +3,8 @@ from src.decorators.catch import catch
 from src.models.organizer import note_book
 from src.exceptions.wrong_arguments_number_exception import WrongArgumentsNumberException
 from src.models.note_book.note import Note
+from src.helpers.logger import Logger
+
 @catch
 def add_note(args: List[str]):
     if len(args) < 2:
@@ -16,4 +18,4 @@ def add_note(args: List[str]):
         raise KeyError(f"Note with title - {title} already exist")
 
     note_book.add_note(Note(title, text))
-    print(f"Note with title '{title}' successfully added.")
+    Logger.success(f"Note with title '{title}' successfully added.")

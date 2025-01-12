@@ -2,7 +2,7 @@ from typing import List
 from src.decorators.catch import catch
 from src.exceptions.wrong_arguments_number_exception import WrongArgumentsNumberException
 from src.models.organizer import note_book
-from src.models.note_book.tag import Tag
+from src.helpers.logger import Logger
 
 
 @catch
@@ -13,7 +13,8 @@ def add_tags(args: List[str]):
     note = note_book.find_note(title)
     if note:
         note.add_tags(tags)
-        print(f"Tags - '{tags}' successfully added.", note)
+        Logger.success(f"Tags - '{tags}' successfully added.")
+        print(note)
 
     else:
         raise KeyError(f"Note with title - {title} doesn't exist")

@@ -20,7 +20,8 @@ def remove_tags(args: List[str]):
             return
         
         note.remove_tags(tags)
-        Logger.success(f"Tag - {tags} successfully deleted.", note)
+        Logger.success(f"Tag - {tags} successfully deleted.")
+        print(note)
 
     else:
         raise KeyError(f"Note with title - {title} doesn't exist")
