@@ -3,6 +3,7 @@ from src.decorators.catch import catch
 from src.exceptions.wrong_arguments_number_exception import WrongArgumentsNumberException
 from src.models.organizer import note_book
 from src.decorators.confirm import confirm
+from src.helpers.logger import Logger
 
 
 @catch
@@ -13,6 +14,6 @@ def remove_note(args: List[str]):
     title = args[0]
     resp = note_book.remove_note(title)
     if resp:
-        print(f"Note with this title - {title} successfully deleted.")
+        Logger.success(f"Note with this title - {title} successfully deleted.")
     else:
-        print(f"Note with title - {title} does not exist.")
+        raise KeyError(f"Note with title - {title} does not exist.")
