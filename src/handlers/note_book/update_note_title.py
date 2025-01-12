@@ -2,6 +2,7 @@ from typing import List
 from src.decorators.catch import catch
 from src.exceptions.wrong_arguments_number_exception import WrongArgumentsNumberException
 from src.models.organizer import note_book
+from src.helpers.logger import Logger
 
 
 @catch
@@ -16,6 +17,7 @@ def update_note_title(args: List[str]):
         raise KeyError(f"New title - {new_title} already exists")
     elif note:
         note_book.update_note_title(old_title, new_title)
-        print(f"Title in note - updated on {new_title} successfully",note)
+        Logger.success(f"Title in note - updated on {new_title} successfully")
+        print(note)
     else:
         raise KeyError(f"Note with title - {old_title} does not exist.")
