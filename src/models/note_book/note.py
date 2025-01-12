@@ -1,6 +1,5 @@
 import os
 from typing import List
-# from .tag import Tag
 from colorama import Fore
 from src.helpers.wrap_text import wrap_text
 
@@ -13,13 +12,6 @@ class Note():
         self.__tags: set[str] = set()
         self.title = title
         self.text = text
-
-    # def __str__(self):
-    #     formatted_tags = ', '.join(f"#{tag}" for tag in self.__tags)
-    #     return f"Note[title={self.title}, text={self.text}, tags={formatted_tags}]"
-
-    # def __repr__(self):
-    #     return self.__str__()
 
     @property
     def tags(self):
