@@ -11,7 +11,7 @@ from src.models.organizer import note_book
 
 def fill_mock_data():
 
-    if os.path.exists("src/data/organizer.pkl"):
+    if os.path.exists("data/organizer.pkl"):
         return
 
     with open('data/mock_contacts.json', 'r') as fc:
