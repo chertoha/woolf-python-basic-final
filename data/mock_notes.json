@@ -1,101 +1,76 @@
 [
   {
-    "title": "WorkoutRoutine",
+    "title": "WeekendWorkout",
     "text": "Detailed workout routine for strength and endurance.",
     "tags": ["fitness", "routine", "workout", "strength"]
   },
   {
-    "title": "DailyHabits",
+    "title": "HealthyHabits",
     "text": "Track daily habits: water intake, steps, and mindfulness.",
     "tags": ["habits", "daily", "health"]
   },
   {
-    "title": "WeekendPlans",
+    "title": "WeekendEscape",
     "text": "Ideas for a relaxing weekend: movies, hiking, and reading."
   },
   {
-    "title": "MeetingAgenda",
+    "title": "TeamMeeting",
     "text": "Outline of topics for next week's meeting.",
     "tags": ["meeting", "agenda", "work"]
   },
   {
-    "title": "HolidayChecklist",
+    "title": "VacationPacking",
     "text": "Packing list and essentials for the upcoming holiday.",
     "tags": ["travel", "holiday", "checklist"]
   },
   {
-    "title": "SelfImprovement",
+    "title": "PersonalGrowth",
     "text": "Books, podcasts, and courses for personal growth.",
     "tags": ["self-improvement", "learning", "growth"]
   },
   {
-    "title": "CodeSnippets",
+    "title": "WebSnippets",
     "text": "A collection of useful code snippets for web development.",
     "tags": ["code", "snippets", "development", "web"]
   },
   {
-    "title": "GroceryBudget",
+    "title": "GroceryPlanner",
     "text": "Monthly budget for groceries and household items.",
     "tags": ["shopping", "budget", "groceries"]
   },
   {
-    "title": "BirthdayReminder",
+    "title": "BirthdayAlerts",
     "text": "Reminder to send birthday wishes to friends and family.",
     "tags": ["birthday", "reminder", "family"]
   },
   {
-    "title": "RecipeCollection",
+    "title": "FamilyRecipes",
     "text": "A collection of family recipes for special occasions.",
     "tags": ["cooking", "recipes", "family"]
   },
   {
-    "title": "WorkoutRoutine",
-    "text": "Detailed workout routine for strength and endurance.",
-    "tags": ["fitness", "routine", "workout", "strength"]
+    "title": "EveningRoutine",
+    "text": "Detailed workout routine for evening relaxation.",
+    "tags": ["routine", "workout", "relaxation"]
   },
   {
-    "title": "DailyHabits",
-    "text": "Track daily habits: water intake, steps, and mindfulness.",
-    "tags": ["habits", "daily", "health"]
+    "title": "MindfulMornings",
+    "text": "Morning routine for mindfulness and positivity.",
+    "tags": ["mindfulness", "morning", "habits"]
   },
   {
-    "title": "WeekendPlans",
-    "text": "Ideas for a relaxing weekend: movies, hiking, and reading.",
-    "tags": ["plans", "weekend", "leisure"]
+    "title": "OutdoorPlans",
+    "text": "Plan for outdoor activities during the weekend.",
+    "tags": ["outdoors", "weekend", "adventure"]
   },
   {
-    "title": "MeetingAgenda",
-    "text": "Outline of topics for next week's meeting.",
-    "tags": ["meeting", "agenda", "work"]
+    "title": "OfficeAgenda",
+    "text": "Meeting agenda for the office discussion next week.",
+    "tags": ["office", "agenda", "meeting"]
   },
   {
-    "title": "HolidayChecklist",
-    "text": "Packing list and essentials for the upcoming holiday.",
-    "tags": ["travel", "holiday", "checklist"]
-  },
-  {
-    "title": "SelfImprovement",
-    "text": "Books, podcasts, and courses for personal growth.",
-    "tags": ["self-improvement", "learning", "growth"]
-  },
-  {
-    "title": "CodeSnippets",
-    "text": "A collection of useful code snippets for web development.",
-    "tags": ["code", "snippets", "development", "web"]
-  },
-  {
-    "title": "GroceryBudget",
-    "text": "Monthly budget for groceries and household items.",
-    "tags": ["shopping", "budget", "groceries"]
-  },
-  {
-    "title": "BirthdayReminder",
-    "text": "Reminder to send birthday wishes to friends and family.",
-    "tags": ["birthday", "reminder", "family"]
-  },
-  {
-    "title": "RecipeCollection",
-    "text": "A collection of family recipes for special occasions.",
-    "tags": ["cooking", "recipes", "family"]
+    "title": "TravelChecklist",
+    "text": "Essential travel checklist for vacations.",
+    "tags": ["travel", "checklist", "packing"]
   }
 ]

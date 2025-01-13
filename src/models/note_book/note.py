@@ -1,3 +1,14 @@
+"""
+Note Class
+==========
+
+The `Note` class represents a single note with a title, text content, and associated tags. 
+Each note is an independent entity, and its primary function is to store and manage textual 
+information along with a list of tags for categorization or search purposes. 
+
+
+"""
+
 import os
 from typing import List
 from colorama import Fore

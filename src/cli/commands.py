@@ -29,7 +29,7 @@ commands = {
     Commands.FIND_NOTES: {"handler": find_notes, "description": "Search notes by content or title."},
     Commands.FIND_TAGS: {"handler": find_tags, "description": "Search notes by tags."},
 
-   
+
 }
 
 
@@ -43,6 +43,3 @@ def execute_command(command: str, args: List[str]):
     else:
         raise WrongCommandException(
             f"Command '{command}' not recognized. Use 'help' to see available commands.")
-
-
-

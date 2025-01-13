@@ -1,3 +1,7 @@
+"""
+The `ContactBook` class extends Python's `UserList` to manage contact records. It supports adding, searching, removing, exporting, and importing contacts, along with handling upcoming birthdays.
+"""
+
 from collections import UserList
 from typing import List
 from datetime import datetime, timedelta

@@ -1,3 +1,16 @@
+"""
+NoteBook Class
+==============
+
+The `NoteBook` class is designed to manage a collection of notes. It allows storing, 
+retrieving, updating, and removing individual notes in an organized manner. Each note 
+is represented by an instance of the `Note` class, which contains a title, text content, 
+and associated tags. The `NoteBook` class provides an interface to manipulate these notes, 
+making it easier to search for specific notes, filter by tags, and update existing note details.
+
+
+"""
+
 from typing import List
 from .note import Note
 

@@ -1,3 +1,16 @@
+"""
+Record Class
+============
+
+The `Record` class is designed to represent an individual contact within a contact 
+management system. It stores personal information such as the contact's name, 
+address, email, birthday, and phone numbers. This class allows managing and organizing 
+a contact's details, providing the ability to add, update, and remove various attributes 
+associated with a person.
+
+
+"""
+
 import os
 from typing import List
 
