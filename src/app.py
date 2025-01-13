@@ -1,3 +1,4 @@
+from src.helpers.fill_mock_data import fill_mock_data
 from src.helpers.logger import Logger
 from src.handlers.show_help import show_help
 from src.cli.autocomplete_config import CommandCompleter, autocmplete_style
@@ -10,6 +11,8 @@ from src.models.organizer import organizer_instance
 
 
 def app() -> None:
+
+    fill_mock_data()
 
     COMMANDS = [cmd.value for cmd in Commands]
 
