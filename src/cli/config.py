@@ -7,7 +7,7 @@ class Commands(Enum):
     REMOVE_CONTACT = "remove-contact"
     UPDATE_NAME = "update-name"
 
-    ADD_PHONE = "add-phone"
+    # ADD_PHONE = "add-phone"
     UPDATE_PHONE = "update-phone"
     REMOVE_PHONE = "remove-phone"
 
