@@ -9,7 +9,7 @@ from src.helpers.logger import Logger
 
 @catch
 def add_address(args: List[str]):
-    if (len(args) < 2):
+    if len(args) < 2:
         raise WrongArgumentsNumberException(2)
 
     name, *rest = args

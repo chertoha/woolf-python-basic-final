@@ -10,7 +10,7 @@ from src.helpers.logger import Logger
 @catch
 @confirm("Are you sure you want to clear address?")
 def clear_address(args: List[str]):
-    if (len(args) < 1):
+    if len(args) < 1:
         raise WrongArgumentsNumberException(1)
 
     name, = args

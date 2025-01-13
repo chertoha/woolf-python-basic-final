@@ -9,7 +9,7 @@ from src.models.organizer import contact_book
 @catch
 def add_contact(args: List[str]):
 
-    if (len(args) < 2):
+    if len(args) < 2:
         raise WrongArgumentsNumberException(2)
 
     name, phone = args

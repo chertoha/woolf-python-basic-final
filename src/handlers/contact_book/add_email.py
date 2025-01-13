@@ -9,7 +9,7 @@ from src.decorators.catch import catch
 
 @catch
 def add_email(args: List[str]):
-    if (len(args) < 2):
+    if len(args) < 2:
         raise WrongArgumentsNumberException(2)
 
     name, email = args
